@@ -1,4 +1,4 @@
-const tools = ['rock', 'paper', 'scissors'];
+const tools = ['rock', 'paper', 'scissors']; // наш массив
 
 const getRandomNumber = (min, max) => 
     Math.floor(Math.random() * (max - min + 1) + min); // ф-ия для генерации рандомного целого! числа
@@ -12,24 +12,24 @@ console.log(`Your answer is ${userAnswer}`);
 console.log(`Computer answer is ${computerAnswer}`);
 
 const startGame = (userAnswer, computerAnswer) => {
-    userAnswer = userAnswer.toLowerCase();
-    if (!userAnswer || !tools.includes(userAnswer)) {
-        return "Wrong answer"; // если ничего не введено в окно или введено не правильно
+    userAnswer = userAnswer.toLowerCase(); // кладем в переменную userAnswer ту же переменную, только в нижнем регистре
+    if (!userAnswer || !tools.includes(userAnswer)) { // проверка
+        return "Wrong answer"; // если ничего не введено либо введено то, чего нет в массиве
     }     
 
-    let res = '';
+    let res = ''; // пустая строка
 
-    const isDraw = userAnswer === computerAnswer;
-    const isUserWin = (userAnswer === 'rock' && computerAnswer === 'scissors') || 
-    (userAnswer === 'paper' && computerAnswer === 'rock') || 
-    (userAnswer === 'scissors' && computerAnswer === 'paper');
+    const isDraw = userAnswer === computerAnswer; // условия ничьи
+    const isUserWin = (userAnswer === 'rock' && computerAnswer === 'scissors') || // условия для победы
+    (userAnswer === 'paper' && computerAnswer === 'rock') ||   // условия для победы
+    (userAnswer === 'scissors' && computerAnswer === 'paper');  // условия для победы
 
-    if(isDraw) res = "It's draw";
-    else if (isUserWin) res = "You Win :)";
-    else res = "You lose :("
+    if(isDraw) res = "It's draw"; // при ничьей выпадает окно с результатом
+    else if (isUserWin) res = "You Win :)"; // при выигрышных условиях выводится "You Win :)"
+    else res = "You lose :("  // при всех остальных "You lose :("
 
-    return res;
+    return res; // возвращает результат
 };
 
 const result = startGame(userAnswer, computerAnswer);
-alert(result);
+alert(result); // выводится result
